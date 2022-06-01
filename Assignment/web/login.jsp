@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -26,5 +26,62 @@
                 <input type="submit" value="Đăng Nhập"/>
             </form>
         </div> 
+    </body>
+</html> -->
+
+<html lang="en" >
+    <head>
+
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="css/login.css">
+
+    </head>
+    <body>
+        <div class="box-form">
+            <div class="left">
+                <div class="overlay">
+                    <h2>Welcome to Score Report</h2>
+                    <p>Score viewing system for FPT's students</p>
+                    <span>
+                        <br>
+                        <br>
+                        
+                        <p>Login with social media</p>
+                        <a href="#"><i class="fa fa-google" aria-hidden="true"></i> Login with Google</a>
+
+                    </span>
+                </div>
+            </div>
+            <form method="Post" name="input" border="1px solid black">
+                <div class="right">
+
+                    <h5>Login</h5>
+                    <div class="inputs">
+                        <input type="text" name="username" placeholder="User name">
+                        <br>
+                        <input type="password" name="pass" placeholder="Password">
+                    </div>
+
+                    <br><br>
+
+                    <div class="remember-me--forget-password">
+                        <!-- Angular -->
+                        <label>
+                            <input type="checkbox" name="item" checked/>
+                            <span class="text-checkbox">Remember me</span>
+                        </label>
+                        <p>Forget password?</p>
+                    </div>
+
+                    <br>
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+
+
+
+        </div>
+        <!-- partial -->
+
     </body>
 </html>
