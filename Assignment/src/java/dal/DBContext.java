@@ -7,6 +7,7 @@ package dal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,14 +15,14 @@ import java.util.logging.Logger;
  *
  * @author ADMIN
  */
-public abstract class DBContext<L> {
+public abstract class DBContext<T> {
     protected Connection connection;
     public DBContext()
     {
         try {
             String user = "quang";
             String pass = "dangquang2001";
-            String url = "jdbc:sqlserver://localhost\\QUANG:1433;databaseName=assignment";
+            String url = "jdbc:sqlserver://localhost\\QUANG:1433;databaseName=Assignment";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             connection = DriverManager.getConnection(url, user, pass);
         } catch (ClassNotFoundException | SQLException ex) {
@@ -29,6 +30,11 @@ public abstract class DBContext<L> {
         }
     }
     
-   
+   public abstract ArrayList<T> list();
+    public abstract T get(int id);
+    public abstract void insert(T model);
+    public abstract void update(T model);
+    public abstract void delete(T model);
+    
     
 }
