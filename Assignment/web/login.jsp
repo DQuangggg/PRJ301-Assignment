@@ -40,8 +40,8 @@
         <div class="box-form">
             <div class="left">
                 <div class="overlay">
-                    <h2>Welcome to Score Report</h2>
-                    <p>Score viewing system for FPT's students</p>
+                    <h2>Welcome to Attendance Report</h2>
+                    <p>Attendance Report system for FPT's students</p>
                     <span>
                         <br>
                         <br>
@@ -70,7 +70,7 @@
                             <input type="checkbox" name="item" checked/>
                             <span class="text-checkbox">Remember me</span>
                         </label>
-                        <p>Forget password?</p>
+                        
                     </div>
 
                     <br>
