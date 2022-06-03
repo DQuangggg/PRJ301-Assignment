@@ -14,6 +14,7 @@
     </head>
     <body>
         <a name="class" />GROUP : <br/>
+        <a name="course" />COURSE : <br/>
         <table>
             <tr>
                 <th>INDEX</th>
