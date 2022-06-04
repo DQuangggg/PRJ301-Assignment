@@ -61,8 +61,7 @@ public class LoginController extends HttpServlet {
         LoginDBContext db = new LoginDBContext();
         Account account = db.Login(username, pass);
         if (account != null) {
-            response.getWriter().println("Login successfulll " );
-            response.getWriter().print("Hello user : " );
+            request.getRequestDispatcher("grouptable.jsp").forward(request, response);
         }
         else           
             response.getWriter().print("Login failed");

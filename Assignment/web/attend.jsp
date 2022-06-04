@@ -18,57 +18,62 @@
         <table>
             <tr>
                 <th>INDEX</th>
-                <th>IMAGE</th>
-                <th>CODE</th>
-                <th>FULLNAME</th>
-                <th>ATTEND</th>
+                <th>COURSE</th>
+                <th>FULL NAME</th>
+                <th>ATTENDANCE</th>
+                <th>NOTE</th>
             </tr>
             <tr>
                 <td>1</td>
-                <td>NULL</td>
                 <td>HE150537</td>
                 <td>NGUYEN DANG QUANG</td>
                 <td><input name="attend" type="radio" value="Attended" />Attended
                     <input name="attend" type="radio" value="Absent" />Absent
                 </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>NULL</td>
-                <td>HE150537</td>
-                <td>NGUYEN DANG QUANG</td>
-                <td><input name="attend" type="radio" value="Attended" />Attended
-                    <input name="attend" type="radio" value="Absent" />Absent
+                <td><input type="text" placeholder="Note">
                 </td>
             </tr>
             <tr>
                 <td>1</td>
                 <td>NULL</td>
+                <td>NGUYEN DANG QUANG</td>
+                <td><input name="attend" type="radio" value="Attended" />Attended
+                    <input name="attend" type="radio" value="Absent" />Absent
+                </td>
+                <td><input type="text" placeholder="Note">
+                </td>
+            </tr>
+            <tr>
+                <td>1</td>
                 <td>HE150537</td>
                 <td>NGUYEN DANG QUANG</td>
                 <td><input name="attend" type="radio" value="Attended" />Attended
                     <input name="attend" type="radio" value="Absent" />Absent
                 </td>
+                <td><input type="text" placeholder="Note">
+                </td>
             </tr>
             <tr>
                 <td>1</td>
-                <td>NULL</td>
                 <td>HE150537</td>
                 <td>NGUYEN DANG QUANG</td>
                 <td><input name="attend" type="radio" value="Attended" />Attended
                     <input name="attend" type="radio" value="Absent" />Absent
                 </td>
+                <td><input type="text" placeholder="Note">
+                </td>
             </tr>
             <tr>
                 <td>1</td>
-                <td>NULL</td>
                 <td>HE150537</td>
                 <td>NGUYEN DANG QUANG</td>
                 <td><input name="attend" type="radio" value="Attended" />Attended
                     <input name="attend" type="radio" value="Absent" />Absent
+                </td>
+                <td><input type="text" placeholder="Note">
                 </td>
             </tr>
         </table>
-         <button type="save">SAVE</button>
+        <button type="save">SAVE</button>
     </body>
 </html>

@@ -11,9 +11,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link><link rel="stylesheet" href="css/attend.scss">
+        <link><link rel="stylesheet" href="css/style.css">
     </head>
 
     <body>
+
+
+
+
         <h2>ATTENDACE FOR STUDENT</h2>
         <form action="search" method="POST">
             Choose Course <select name="cname"> 
@@ -43,63 +48,46 @@
         <table>
             <tr>
                 <th>INDEX</th>
-                <th>CODE</th>
-                <th>FULL NAME</th>
-                <th>ATTENDANCE</th>
-                <th>NOTE</th>
+                <th>COURSE NAME</th>
+                <th>GROUP NAME</th>
+                <th>SLOT</th>
+                <th></th>
             </tr>
             <tr>
                 <td>1</td>
+                <td>PJR</td>
+                <td>SE1616</td>
+                <td>   
+                    SLOT1 12/12/2000
+                </td>
+                <td><a class="examp1" href="" target="_blank">
+                        View Attendance
+
+                    </a>
+                    &ensp;
+                    <a class="examp1" href="attend.jsp" target="_blank">
+                        Take Attendance
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
                 <td>HE150537</td>
                 <td>NGUYEN DANG QUANG</td>
-                <td><input name="attend" type="radio" value="Attended" />Attended
-                    <input name="attend" type="radio" value="Absent" />Absent
+                <td>         
                 </td>
-                <td><input type="text" placeholder="Note">
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>NULL</td>
-                <td>NGUYEN DANG QUANG</td>
-                <td><input name="attend" type="radio" value="Attended" />Attended
-                    <input name="attend" type="radio" value="Absent" />Absent
-                </td>
-                <td><input type="text" placeholder="Note">
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>HE150537</td>
-                <td>NGUYEN DANG QUANG</td>
-                <td><input name="attend" type="radio" value="Attended" />Attended
-                    <input name="attend" type="radio" value="Absent" />Absent
-                </td>
-                <td><input type="text" placeholder="Note">
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>HE150537</td>
-                <td>NGUYEN DANG QUANG</td>
-                <td><input name="attend" type="radio" value="Attended" />Attended
-                    <input name="attend" type="radio" value="Absent" />Absent
-                </td>
-                <td><input type="text" placeholder="Note">
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>HE150537</td>
-                <td>NGUYEN DANG QUANG</td>
-                <td><input name="attend" type="radio" value="Attended" />Attended
-                    <input name="attend" type="radio" value="Absent" />Absent
-                </td>
-                <td><input type="text" placeholder="Note">
+                <td><a class="examp1" href="" target="_blank">
+                        View Attendance
+
+                    </a>
+                    &ensp;
+                    <a class="examp1" href="attend.jsp" target="_blank">
+                        Take Attendance
+                    </a>
                 </td>
             </tr>
         </table>
-        <button type="save">SAVE</button>
+
 
     </body>
 </html>
