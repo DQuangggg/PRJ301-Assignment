@@ -4,6 +4,7 @@
     Author     : ADMIN
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,38 +14,25 @@
         <link><link rel="stylesheet" href="css/attend.scss">
         <link><link rel="stylesheet" href="css/style.css">
     </head>
-
     <body>
-
-
-
-
         <h2>ATTENDACE FOR STUDENT</h2>
         <form action="search" method="POST">
-            Choose Course <select name="cname"> 
-                <option>PRJ </option>
-                <option>MAS </option>
-                <option>IOT </option>
+            Choose Group: <select name="cid"> 
+                <c:forEach items="${requestScope.courses}" var="c">
+                    <option 
+                        <c:if test="${c.id eq requestScope.cid}">
+                            selected="selected"
+                        </c:if>
+                        value="${c.cid}">${c.cname}
+                    </option>
+                </c:forEach>
             </select> <br/>
-            Choose Group <select name="gname"> 
-                <option>SE1616 </option>
-                <option>SE1617 </option>
-                <option>SE1618 </option>
-            </select> <br/>
-            Choose Course Date <select name="gname"> 
-                <option>12/12/2000 </option>
-                <option>12/12/2000 </option>
-                <option>12/12/2000 </option>
-            </select> <br/>
-            Choose Slot <select name="gname"> 
-                <option>1 </option>
-                <option>2 </option>
-                <option>3 </option>
-            </select> <br/>
-
             <input type="submit" value="Search"/>
         </form>
         <br/>
+        
+        
+        
         <table>
             <tr>
                 <th>INDEX</th>
