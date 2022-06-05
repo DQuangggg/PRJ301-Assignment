@@ -5,21 +5,19 @@
 
 package controller;
 
-import dal.GroupDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import model.Group;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
  * @author ADMIN
  */
-public class GroupController extends HttpServlet {
+public class LogoutController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -31,7 +29,9 @@ public class GroupController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+        HttpSession session = request.getSession();
+        session.removeAttribute("acc");
+        response.sendRedirect("LoginController");
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -45,9 +45,7 @@ public class GroupController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        GroupDBContext db = new GroupDBContext();
-        ArrayList<Group> group = db.list();
-        request.setAttribute("group", group);
+        processRequest(request, response);
     } 
 
     /** 

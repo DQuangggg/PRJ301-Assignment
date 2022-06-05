@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Course;
+import java.sql.SQLException;
 
 /**
  *
@@ -25,8 +26,8 @@ public class CourseDBContext extends DBContext<Course>{
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {                
                Course c = new Course();
-               c.setCid(rs.getString("cid"));
-               c.setCname(rs.getString("cname;"));
+               c.setCid(rs.getInt("cid"));
+               c.setCname(rs.getString("cname"));
                courses.add(c);
             }
         } catch (Exception ex) {
@@ -53,6 +54,11 @@ public class CourseDBContext extends DBContext<Course>{
     @Override
     public void delete(Course model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+     public static void main(String[] args)
+    {
+        CourseDBContext db = new CourseDBContext();
     }
     
 }

@@ -7,6 +7,8 @@ package dal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Course;
 import model.Group;
 
@@ -18,7 +20,7 @@ public class GroupDBContext extends DBContext<Group>{
     public ArrayList<Group> search(int cid){
         ArrayList<Group> groups = new  ArrayList<>();
         try {
-            String sql = "select gname , gcdate , gcslot  from Course a INNER JOIN [Assignment].[dbo].[Group] b ON a.cid = b.cid WHERE a.cid = ?";
+            String sql = "select gname , gcdate , gcslot  from  [Assignment].[dbo].[Group] b INNER JOIN Course a ON a.cid = b.cid WHERE a.cid = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, cid);
             ResultSet rs = stm.executeQuery();
@@ -29,12 +31,13 @@ public class GroupDBContext extends DBContext<Group>{
                 g.setGcdate(rs.getDate("gcdate"));
                 g.setGcslot(rs.getInt("gcslot"));
                 Course c = new Course();
-                c.setCid(rs.getString("cid"));
-               c.setCname(rs.getString("cname;"));
-               g.setCourse(c);
-               groups.add(g);
+                c.setCid(rs.getInt("cid"));
+                c.setCname(rs.getString("cname"));
+                g.setCourse(c);
+                groups.add(g);
             }
-        } catch (Exception e) {
+        } catch (Exception ex) {
+            Logger.getLogger(GroupDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return groups;
         
@@ -68,5 +71,9 @@ public class GroupDBContext extends DBContext<Group>{
     }
 
    
+    public static void main(String[] args)
+    {
+        GroupDBContext db = new GroupDBContext();
+    }
     
 }

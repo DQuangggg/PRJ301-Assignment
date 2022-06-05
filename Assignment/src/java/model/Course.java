@@ -11,15 +11,15 @@ import java.util.ArrayList;
  * @author ADMIN
  */
 public class Course {
-    private String cid;
+    private int cid;
     private String cname;
     private ArrayList<Group> groups = new ArrayList<>();
 
-    public String getCid() {
+    public int getCid() {
         return cid;
     }
 
-    public void setCid(String cid) {
+    public void setCid(int cid) {
         this.cid = cid;
     }
 

@@ -49,7 +49,7 @@ public class SearchController extends HttpServlet {
         CourseDBContext db = new CourseDBContext();
         ArrayList<Course> courses = db.list();
         request.setAttribute("courses", courses);
-        request.getRequestDispatcher("grouptable.jsp").forward(request, response);
+        request.getRequestDispatcher("view/grouptable.jsp").forward(request, response);
     } 
 
     /** 
@@ -70,7 +70,7 @@ public class SearchController extends HttpServlet {
          ArrayList<Course> courses = dbCourse.list();
          request.setAttribute("courses", courses);
          request.setAttribute("cid", cid);
-         request.getRequestDispatcher("grouptable.jsp").forward(request, response);
+         request.getRequestDispatcher("view/grouptable.jsp").forward(request, response);
     }
 
     /** 

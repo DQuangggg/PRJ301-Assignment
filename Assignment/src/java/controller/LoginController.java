@@ -43,7 +43,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-         request.getRequestDispatcher("login.jsp").forward(request, response);
+         request.getRequestDispatcher("view/login.jsp").forward(request, response);
     } 
 
     /** 
@@ -61,10 +61,11 @@ public class LoginController extends HttpServlet {
         LoginDBContext db = new LoginDBContext();
         Account account = db.Login(username, pass);
         if (account != null) {
-            request.getRequestDispatcher("grouptable.jsp").forward(request, response);
+            request.getRequestDispatcher("search").forward(request, response);
         }
         else           
-            response.getWriter().print("Login failed");
+            request.setAttribute("mess", "Wrong User Name or Password !");
+            request.getRequestDispatcher("view/login.jsp").forward(request, response);
         
         
         
