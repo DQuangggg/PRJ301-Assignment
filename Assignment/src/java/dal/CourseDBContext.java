@@ -31,7 +31,7 @@ public class CourseDBContext extends DBContext<Course>{
                courses.add(c);
             }
         } catch (Exception ex) {
-            Logger.getLogger(CourseDBContext.class.getName()).log(Level.SEVERE, null, ex);
+           
         }
         return courses;
     }

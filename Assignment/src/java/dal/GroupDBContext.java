@@ -37,7 +37,6 @@ public class GroupDBContext extends DBContext<Group>{
                 groups.add(g);
             }
         } catch (Exception ex) {
-            Logger.getLogger(GroupDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return groups;
         
