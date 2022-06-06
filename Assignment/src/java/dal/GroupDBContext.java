@@ -6,6 +6,7 @@ package dal;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,7 +21,7 @@ public class GroupDBContext extends DBContext<Group>{
     public ArrayList<Group> search(int cid){
         ArrayList<Group> groups = new  ArrayList<>();
         try {
-            String sql = "select gname , gcdate , gcslot  from  [Assignment].[dbo].[Group] b INNER JOIN Course a ON a.cid = b.cid WHERE a.cid = ?";
+            String sql = "select gid, gname , gcdate , gcslot , a.cid , a.cname  from  [Assignment].[dbo].[Group] b INNER JOIN Course a ON b.cid = a.cid WHERE a.cid = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, cid);
             ResultSet rs = stm.executeQuery();
@@ -37,6 +38,7 @@ public class GroupDBContext extends DBContext<Group>{
                 groups.add(g);
             }
         } catch (Exception ex) {
+            Logger.getLogger(GroupDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return groups;
         

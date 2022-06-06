@@ -11,15 +11,26 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link><link rel="stylesheet" href="css/attend.scss">
         <link><link rel="stylesheet" href="css/style.css">
+        <style>td.indent{ padding-left: 1.8em }</style>
     </head>
     <body>
-        <h2>ATTENDANCE FOR STUDENT</h2>
-        <a class="logout" href="logout">Logout</a>
-                           
-        <form action="search" method="POST">
-            Choose Course: <select name="cid"> 
+        <table class="detail">
+            <tr>
+                <th class="fa fa-home" href="" target="_blank" >HOME</th>
+                <th><h2>ATTENDANCE FOR STUDENT</h2></th>
+                <th><a class="logout" href="logout">Logout</a></th>
+               
+            </tr>
+            <table/>
+            <br/>
+        
+           <form action="search" method="POST">
+             Choose Course: <select name="cid"> 
                 <c:forEach items="${requestScope.courses}" var="c">
                     <option 
                         <c:if test="${c.cid eq requestScope.cid}">
@@ -28,29 +39,29 @@
                         value="${c.cid}">${c.cname}
                     </option>
                 </c:forEach>
-            </select> 
+            </select>
             <input type="submit" value="Search"/>
         </form>
        <br/>
         <c:if test="${requestScope.groups ne null}">
-            <table>
+            <table >
                 <tr>
-                    <td>COURSE NAME</td>
-                    <td>COURSE DATE</td>
-                    <td>COURSE SLOT</td>
-                    <td></td>
+                    <td >GROUP NAME</td>
+                    <td class="indent">DATE</td>
+                    <td class="indent">SLOT</td>
+                    <td class="indent">OPTION</td>
                 </tr>
                 <c:forEach items="${requestScope.groups}" var="g">
                     <tr>
                         <td>${g.gname}</td>
-                        <td>${g.gcdate}</td>
-                        <td>${g.gcslot}</td>
-                        <td><a class="examp1" href="" target="_blank">
+                        <td class="indent">${g.gcdate}</td>
+                        <td class="indent">${g.gcslot}</td>
+                        <td class="indent"><a class="examp1" href="" target="_blank">
                         View Attendance
 
                     </a>
                     &ensp;
-                    <a class="examp1" href="attend.jsp" target="_blank">
+                    <a class="examp1" href="../view/attend.jsp" target="_blank">
                         Take Attendance
                     </a>
                 </td>

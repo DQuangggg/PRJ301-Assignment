@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package controller;
+package controller.course;
 
 import dal.CourseDBContext;
 import dal.GroupDBContext;
@@ -49,7 +49,7 @@ public class SearchController extends HttpServlet {
         CourseDBContext db = new CourseDBContext();
         ArrayList<Course> courses = db.list();
         request.setAttribute("courses", courses);
-        request.getRequestDispatcher("view/group/grouptable.jsp").forward(request, response);
+        request.getRequestDispatcher("../view/group/grouptable.jsp").forward(request, response);
     } 
 
     /** 
@@ -70,16 +70,7 @@ public class SearchController extends HttpServlet {
          ArrayList<Course> courses = dbCourse.list();
          request.setAttribute("courses", courses);
          request.setAttribute("cid", cid);
-         request.getRequestDispatcher("view/group/grouptable.jsp").forward(request, response);
+         request.getRequestDispatcher("../view/group/grouptable.jsp").forward(request, response);
     }
-
-    /** 
-     * Returns a short description of the servlet.
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }

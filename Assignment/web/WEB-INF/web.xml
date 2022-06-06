@@ -10,11 +10,15 @@
     </servlet>
     <servlet>
         <servlet-name>SearchController</servlet-name>
-        <servlet-class>controller.SearchController</servlet-class>
+        <servlet-class>controller.course.SearchController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>controller.LogoutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StudentView</servlet-name>
+        <servlet-class>controller.StudentView</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -26,11 +30,15 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SearchController</servlet-name>
-        <url-pattern>/search</url-pattern>
+        <url-pattern>/course/search</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentView</servlet-name>
+        <url-pattern>/StudentView</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
