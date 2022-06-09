@@ -16,6 +16,7 @@ public class Group {
     private Date gcdate;
     private int gcslot;
     private Course course ;
+   
 
     public int getGid() {
         return gid;

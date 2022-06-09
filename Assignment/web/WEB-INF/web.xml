@@ -20,6 +20,10 @@
         <servlet-name>StudentView</servlet-name>
         <servlet-class>controller.StudentView</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StudentSearchController</servlet-name>
+        <servlet-class>controller.course.StudentSearchController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>StudentView</servlet-name>
         <url-pattern>/StudentView</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentSearchController</servlet-name>
+        <url-pattern>/student/search</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

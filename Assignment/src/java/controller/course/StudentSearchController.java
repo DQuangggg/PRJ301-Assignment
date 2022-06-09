@@ -3,22 +3,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package controller;
+package controller.course;
 
-import dal.LoginDBContext;
+import dal.StudentDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Account;
+import java.sql.Date;
+import java.util.ArrayList;
+import model.Course;
+import model.Student;
 
 /**
  *
  * @author ADMIN
  */
-public class LoginController extends HttpServlet {
+public class StudentSearchController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -29,7 +32,8 @@ public class LoginController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        
+        response.setContentType("text/html;charset=UTF-8");
+       
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -43,7 +47,10 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-         request.getRequestDispatcher("view/login.jsp").forward(request, response);
+        StudentDBContext db = new StudentDBContext();
+        ArrayList<Student> students = db.list();
+        request.setAttribute("students", students);
+        request.getRequestDispatcher("../view/group/attend.jsp").forward(request, response);
     } 
 
     /** 
@@ -56,20 +63,10 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-       String username = request.getParameter("username");
-        String pass = request.getParameter("pass");
-        LoginDBContext db = new LoginDBContext();
-        Account account = db.Login(username, pass);
-        if (account != null) {
-            request.getRequestDispatcher("").forward(request, response);
-          //  response.sendRedirect("view/group/grouptable.jsp");
-        }
-        else           
-            request.setAttribute("mess", "Wrong User Name or Password !");
-            request.getRequestDispatcher("view/login.jsp").forward(request, response);
-        
-        
-        
+        String gcdate = new SimpleDateFormat("dd/MM/yyyy").par
+        int gcslot = Integer.parseInt("gcslot");
+        StudentDBContext dbStu = new StudentDBContext();
+        ArrayList<Student> students = dbStu.search(gcdate, gcslot);
     }
 
     /** 
