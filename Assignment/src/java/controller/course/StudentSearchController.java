@@ -5,16 +5,17 @@
 
 package controller.course;
 
+import dal.CourseDBContext;
+import dal.GroupDBContext;
 import dal.StudentDBContext;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.sql.Date;
 import java.util.ArrayList;
 import model.Course;
+import model.Group;
 import model.Student;
 
 /**
@@ -32,7 +33,6 @@ public class StudentSearchController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
        
     } 
 
@@ -63,10 +63,23 @@ public class StudentSearchController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String gcdate = new SimpleDateFormat("dd/MM/yyyy").par
-        int gcslot = Integer.parseInt("gcslot");
-        StudentDBContext dbStu = new StudentDBContext();
-        ArrayList<Student> students = dbStu.search(gcdate, gcslot);
+        int cid = Integer.parseInt(request.getParameter("cid"));
+        int gid = Integer.parseInt(request.getParameter("gid"));
+        
+        StudentDBContext dbStu = new  StudentDBContext();
+        ArrayList<Student> students = dbStu.search(gid, cid);
+        request.setAttribute("students", students);
+        
+        CourseDBContext dbCourse = new CourseDBContext();
+        ArrayList<Course> courses = dbCourse.list();
+        request.setAttribute("courses", courses);
+        request.setAttribute("cid", cid);
+        
+        GroupDBContext dbGro = new GroupDBContext();
+        ArrayList<Group> groups = dbGro.search(cid);
+        request.setAttribute("groups", groups);
+        request.setAttribute("gid", gid);
+        request.getRequestDispatcher("../view/group/attend.jsp").forward(request, response);
     }
 
     /** 

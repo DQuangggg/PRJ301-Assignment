@@ -8,6 +8,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import model.Course;
 import model.Group;
 import model.Student;
 
@@ -16,14 +17,14 @@ import model.Student;
  * @author ADMIN
  */
 public class StudentDBContext extends DBContext<Student>{
-   public ArrayList<Student> search (String gcdate , int gcslot){
+   public ArrayList<Student> search (int gid , int cid){
        ArrayList<Student> students = new  ArrayList<>();
        try {
-           String sql = "select  a.sid , a.sname , a.scode , a.sattendance , a.smail ,a.snote ,b.gid , b.cid from Student a \n" +
-                    "INNER JOIN [Assignment].[dbo].[Group] b On a.gid = b.gid and a.cid = b.cid where b.gcdate = ? and b.gcslot = ?";
+           String sql = "SELECT DISTINCT a.sid , a.sname , a.scode , a.sattendance , a.smail ,a.snote ,b.gid , b.cid FROM Student a \n" +
+                        "INNER JOIN [Assignment].[dbo].[Group] b ON a.gid = b.gid and a.cid = b.cid WHERE b.gid = ? and b.cid = ?  ORDER BY a.scode ASC ";
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setDate(1, Date.valueOf(gcdate));
-            stm.setInt(2, gcslot);
+            stm.setInt(1, gid);
+            stm.setInt(2, cid);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {               
                Student s = new Student();
@@ -34,9 +35,11 @@ public class StudentDBContext extends DBContext<Student>{
                s.setSmail(rs.getString("smail"));
                s.setSnote(rs.getString("snote"));
                Group g = new Group();
-               g.setGcdate(rs.getDate("gcdate"));
-               g.setGcslot(rs.getInt("gcslot"));
+               g.setGid(rs.getInt("gid"));
+               Course c = new Course();
+               c.setCid(rs.getInt("cid"));
                s.setGroups(g);
+               s.setCourses(c);
                students.add(s);
            }
             

@@ -61,7 +61,7 @@
 
                     </a>
                     &ensp;
-                    <a class="examp1" href="../view/attend.jsp" target="_blank">
+                    <a class="examp1" href="../view/group/attend.jsp" target="_blank">
                         Take Attendance
                     </a>
                 </td>
