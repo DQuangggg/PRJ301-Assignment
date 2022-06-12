@@ -75,6 +75,8 @@ public class GroupDBContext extends DBContext<Group>{
     public static void main(String[] args)
     {
         GroupDBContext db = new GroupDBContext();
+        ArrayList<Group> acc = db.search(1);
+        System.out.println(acc);
     }
     
 }

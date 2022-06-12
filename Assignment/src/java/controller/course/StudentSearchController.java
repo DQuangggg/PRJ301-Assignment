@@ -67,7 +67,7 @@ public class StudentSearchController extends HttpServlet {
         int gid = Integer.parseInt(request.getParameter("gid"));
         
         StudentDBContext dbStu = new  StudentDBContext();
-        ArrayList<Student> students = dbStu.search(gid, cid);
+        ArrayList<Student> students = dbStu.list();
         request.setAttribute("students", students);
         
         CourseDBContext dbCourse = new CourseDBContext();
@@ -76,7 +76,7 @@ public class StudentSearchController extends HttpServlet {
         request.setAttribute("cid", cid);
         
         GroupDBContext dbGro = new GroupDBContext();
-        ArrayList<Group> groups = dbGro.search(cid);
+        ArrayList<Group> groups = dbGro.list();
         request.setAttribute("groups", groups);
         request.setAttribute("gid", gid);
         request.getRequestDispatcher("../view/group/attend.jsp").forward(request, response);
