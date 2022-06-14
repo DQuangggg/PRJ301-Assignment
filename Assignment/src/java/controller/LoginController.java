@@ -61,8 +61,9 @@ public class LoginController extends HttpServlet {
         LoginDBContext db = new LoginDBContext();
         Account account = db.Login(username, pass);
         if (account != null) {
-            request.getRequestDispatcher("").forward(request, response);
-          //  response.sendRedirect("view/group/grouptable.jsp");
+         //   request.getRequestDispatcher("view/group/grouptable.jsp").forward(request, response);
+            
+           response.sendRedirect("/course/search");
         }
         else           
             request.setAttribute("mess", "Wrong User Name or Password !");

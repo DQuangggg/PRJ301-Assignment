@@ -16,21 +16,23 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link><link rel="stylesheet" href="css/attend.scss">
         <link><link rel="stylesheet" href="css/style.css">
-        <style>td.indent{ padding-left: 1.8em }</style>
+        <link><link href="../../css/grouptable.css" rel="stylesheet" type="text/css"/>
+        <style>td.indent{
+                padding-left: 1.8em
+            }</style>
     </head>
     <body>
-        <table class="detail">
-            <tr>
-                <th class="fa fa-home" href="" target="_blank" >HOME</th>
-                <th><h2>ATTENDANCE FOR STUDENT</h2></th>
-                <th><a class="logout" href="logout">Logout</a></th>
-               
-            </tr>
-            <table/>
-            <br/>
-        
-           <form action="search" method="POST">
-             Choose Course: <select name="cid"> 
+        <div class="topnav">
+            <a class="fa fa-home" href="http://localhost:9999/Assignment/course/search" target="_blank">Home</a>
+            <a>ATTENDANCE FOR STUDENT</a>
+            <a class="logout" href="http://localhost:9999/Assignment/LoginController">Logout</a>
+        </div>
+
+
+        <br/>
+
+        <form action="search" method="POST">
+            Choose Course: <select name="cid"> 
                 <c:forEach items="${requestScope.courses}" var="c">
                     <option 
                         <c:if test="${c.cid eq requestScope.cid}">
@@ -42,7 +44,7 @@
             </select>
             <input type="submit" value="Search"/>
         </form>
-       <br/>
+        <br/>
         <c:if test="${requestScope.groups ne null}">
             <table >
                 <tr>
@@ -57,14 +59,14 @@
                         <td class="indent">${g.gcdate}</td>
                         <td class="indent">${g.gcslot}</td>
                         <td class="indent"><a class="examp1" href="" target="_blank">
-                        View Attendance
+                                View Attendance
 
-                    </a>
-                    &ensp;
-                    <a class="examp1" href="../view/group/attend.jsp" target="_blank">
-                        Take Attendance
-                    </a>
-                </td>
+                            </a>
+                            &ensp;
+                            <a class="examp1" href="../view/group/attend.jsp" target="_blank">
+                                Take Attendance
+                            </a>
+                        </td>
                     </tr>  
                 </c:forEach>
             </table>
