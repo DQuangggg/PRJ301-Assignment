@@ -15,8 +15,18 @@ public class Group {
     private String gname;
     private Date gcdate;
     private int gcslot;
+    private String groom;
     private Course course ;
+
+    public String getGroom() {
+        return groom;
+    }
+
+    public void setGroom(String groom) {
+        this.groom = groom;
+    }
    
+    
 
     public int getGid() {
         return gid;

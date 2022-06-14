@@ -50,7 +50,7 @@ public class StudentSearchController extends HttpServlet {
         StudentDBContext db = new StudentDBContext();
         ArrayList<Student> students = db.list();
         request.setAttribute("students", students);
-        request.getRequestDispatcher("../view/group/attend.jsp").forward(request, response);
+        request.getRequestDispatcher("view/group/attend.jsp").forward(request, response);
     } 
 
     /** 
@@ -79,7 +79,7 @@ public class StudentSearchController extends HttpServlet {
         ArrayList<Group> groups = dbGro.search(cid);
         request.setAttribute("groups", groups);
         request.setAttribute("gid", gid);
-        request.getRequestDispatcher("../view/group/attend.jsp").forward(request, response);
+        request.getRequestDispatcher("view/group/attend.jsp").forward(request, response);
     }
 
     /** 

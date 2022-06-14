@@ -43,7 +43,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-         request.getRequestDispatcher("view/login.jsp").forward(request, response);
+         request.getRequestDispatcher("view/group/login.jsp").forward(request, response);
     } 
 
     /** 
@@ -60,14 +60,13 @@ public class LoginController extends HttpServlet {
         String pass = request.getParameter("pass");
         LoginDBContext db = new LoginDBContext();
         Account account = db.Login(username, pass);
-        if (account != null) {
-         //   request.getRequestDispatcher("view/group/grouptable.jsp").forward(request, response);
-            
-           response.sendRedirect("/course/search");
+        if (account == null) {
+           request.setAttribute("mess", "Wrong User Name or Password !");
+           request.getRequestDispatcher("view/group/login.jsp").forward(request, response);
+           
         }
         else           
-            request.setAttribute("mess", "Wrong User Name or Password !");
-            request.getRequestDispatcher("view/login.jsp").forward(request, response);
+            response.sendRedirect("http://localhost:9999/Assignment/course/search");
         
         
         
