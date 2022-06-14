@@ -80,7 +80,5 @@ public class StudentDBContext extends DBContext<Student>{
     public static void main(String[] args)
     {
         StudentDBContext db = new StudentDBContext();
-        ArrayList<Student> acc = db.search(1, 1);
-        System.out.println(acc);
     }
 }
