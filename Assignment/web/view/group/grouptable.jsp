@@ -39,7 +39,7 @@
     <body>
         <div class="topnav">
             <a class="fa fa-home" href="http://localhost:9999/Assignment/course/search" target="_blank">Home</a>
-            <a class="details">ATTENDANCE FOR STUDENT</a>
+            <a class="details">MARKS REPORT FOR TEACHER</a>
             <a class="logout" href="http://localhost:9999/Assignment/LoginController">Logout</a>
         </div>
 

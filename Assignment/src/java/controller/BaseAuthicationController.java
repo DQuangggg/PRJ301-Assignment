@@ -5,22 +5,20 @@
 
 package controller;
 
-import dal.LoginDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.Cookie;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import model.Account;
 
 /**
  *
  * @author ADMIN
  */
-public class LoginController extends HttpServlet {
+@WebServlet(name="BaseAuthicationController", urlPatterns={"/BaseAuthicationController"})
+public abstract class BaseAuthicationController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -31,7 +29,19 @@ public class LoginController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet BaseAuthicationController</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet BaseAuthicationController at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -45,19 +55,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        Cookie arr[] = request.getCookies();
-        if (arr!=null) {
-        for (Cookie o : arr ) {
-            if (o.getName().equals("user")) {
-                request.setAttribute("username", o.getValue());
-            }
-            if (o.getName().equals("pass")) {
-                request.setAttribute("password", o.getValue());
-            }
-        }
-        
-        }
-         request.getRequestDispatcher("view/group/login.jsp").forward(request, response);
+        processRequest(request, response);
     } 
 
     /** 
@@ -70,39 +68,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-       String username = request.getParameter("username");
-        String pass = request.getParameter("pass");
-        String remember = request.getParameter("remember");
-        LoginDBContext db = new LoginDBContext();
-        Account account = db.Login(username, pass);
-        if (account == null) {
-           request.setAttribute("mess", "Wrong User Name or Password !");
-           request.getRequestDispatcher("view/group/login.jsp").forward(request, response);
-           
-        }
-        else           
-        {
-            HttpSession session = request.getSession();
-            session.setAttribute("acc", account);
-            Cookie u = new Cookie("user", username);
-            Cookie p = new Cookie("pass", pass);
-            u.setMaxAge(3600 * 24 * 7 * 52);
-            
-            if (remember!= null) {
-                       p.setMaxAge(3600 * 24 * 7 * 52);
-                }
-                    else{
-                         p.setMaxAge(0);
-                    }
-            
-            
-            
-            response.addCookie(u);
-            response.addCookie(p);
-            response.sendRedirect("http://localhost:9999/Assignment/course/search");
-        
-        
-        }
+        processRequest(request, response);
     }
 
     /** 

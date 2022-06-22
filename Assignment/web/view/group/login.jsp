@@ -41,8 +41,8 @@
         <div class="box-form">
             <div class="left">
                 <div class="overlay">
-                    <h2>Welcome to Attendance Report</h2>
-                    <p>Attendance Report system for FPT's students</p>
+                    <h2>Welcome to Marks Report</h2>
+                    <p>Marks Report system for FPT's students</p>
                     <span>
                         <br>
                         <br>
@@ -69,7 +69,7 @@
                     <div class="remember-me--forget-password">
                         <!-- Angular -->
                         <label>
-                            <input type="checkbox" name="item" checked/>
+                            <input name="remember"value="1" type="checkbox" name="item" checked/>
                             <span class="text-checkbox">Remember me</span>
                         </label>
                         
