@@ -13,19 +13,8 @@ import java.sql.Date;
 public class Group {
     private int gid;
     private String gname;
-    private Date gcdate;
-    private int gcslot;
-    private String groom;
     private Course course ;
 
-    public String getGroom() {
-        return groom;
-    }
-
-    public void setGroom(String groom) {
-        this.groom = groom;
-    }
-   
     
 
     public int getGid() {
@@ -43,22 +32,7 @@ public class Group {
     public void setGname(String gname) {
         this.gname = gname;
     }
-
-    public Date getGcdate() {
-        return gcdate;
-    }
-
-    public void setGcdate(Date gcdate) {
-        this.gcdate = gcdate;
-    }
-
-    public int getGcslot() {
-        return gcslot;
-    }
-
-    public void setGcslot(int gcslot) {
-        this.gcslot = gcslot;
-    }
+   
 
     public Course getCourse() {
         return course;

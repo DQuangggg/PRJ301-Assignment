@@ -21,7 +21,7 @@ public class CourseDBContext extends DBContext<Course>{
     public ArrayList<Course> list() {
        ArrayList<Course> courses = new ArrayList<>();
         try {
-           String sql = "SELECT cid,cname FROM Course" ;
+           String sql = "SELECT DISTINCT cid,cname FROM Course" ;
            PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {                

@@ -64,25 +64,21 @@
         <c:if test="${requestScope.groups ne null}">
             <table >
                 <tr>
-                    <td >GROUP NAME</td>
-                    <td class="indent">DATE</td>
-                    <td class="indent">SLOT</td>
-                    <td class="indent">ROOM</td>
+                    <td >GROUP ID</td>
+                    <td class="indent">GROUP NAME</td>
                     <td class="indent">OPTION</td>
                 </tr>
                 <c:forEach items="${requestScope.groups}" var="g">
                     <tr>
-                        <td>${g.gname}</td>
-                        <td class="indent">${g.gcdate}</td>
-                        <td class="indent">${g.gcslot}</td>
-                        <td class="indent">${g.groom}</td>
+                        <td>${g.gid}</td>
+                        <td class="indent">${g.gname}</td>
                         <td class="indent"><a class="examp1" href="" target="_blank">
-                                View Attendance
+                                View Marks
 
                             </a>
                             &ensp;
-                            <a class="examp1" href="attend?id=${g.gid}" target="_blank">
-                                Take Attendance
+                            <a class="examp1" href="" target="_blank">
+                                Take Marks
                             </a>
                         </td>
                     </tr>  

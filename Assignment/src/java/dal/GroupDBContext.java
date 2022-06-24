@@ -21,7 +21,7 @@ public class GroupDBContext extends DBContext<Group>{
     public ArrayList<Group> search(int cid){
         ArrayList<Group> groups = new  ArrayList<>();
         try {
-            String sql = "select gid, gname , gcdate , gcslot , groom , a.cid , a.cname  from  [Assignment].[dbo].[Group] b INNER JOIN Course a ON b.cid = a.cid WHERE a.cid = ?";
+            String sql = "Select b.gid , b.gname ,a.cid , a.cname From Course a INNER JOIN [Assignment].[dbo].[Group] b ON a.gid = b.gid Where a.cid = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, cid);
             ResultSet rs = stm.executeQuery();
@@ -29,9 +29,6 @@ public class GroupDBContext extends DBContext<Group>{
                 Group g = new Group();
                 g.setGid(rs.getInt("gid"));
                 g.setGname(rs.getString("gname"));
-                g.setGcdate(rs.getDate("gcdate"));
-                g.setGcslot(rs.getInt("gcslot"));
-                g.setGroom(rs.getString("groom"));
                 Course c = new Course();
                 c.setCid(rs.getInt("cid"));
                 c.setCname(rs.getString("cname"));

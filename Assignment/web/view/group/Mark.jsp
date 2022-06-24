@@ -4,6 +4,8 @@
     Author     : ADMIN
 --%>
 
+<!--Remake connect n-n between course and teacher-->
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -37,7 +39,7 @@
 
     </head>
     <body>
-        <!--       <div class="topnav">
+              <div class="topnav">
                     <a class="fa fa-home" href="http://localhost:9999/Assignment/course/search" target="_blank">Home</a>
                     <a class="details">MARKS REPORT FOR TEACHER</a>
                     <a class="logout" href="http://localhost:9999/Assignment/LoginController">Logout</a>
@@ -46,7 +48,7 @@
         
                 <br/>
                 
-                         View List
+                         .
                         <form action="search" method="POST">
                             Choose Course: <select name="cid"> 
                                 <option >Java Web Application Development</option>
@@ -65,7 +67,7 @@
                             <input type="submit" value="Search"/>
                         </form>
                         <br/>
-                        <a class="examp1" href="" target="_blank">
+                        <a class="examp1" href="http://localhost:9999/Assignment/view/group/Stuent.jsp" target="_blank">
                             View Marks
                 
                         </a>
@@ -84,41 +86,42 @@
                             </tr>
                             <tr>
                                 <td >1</td>
-                                <td class="indent">NULL</td>
+                                <td class="indent"></td>
+                            <img src="../image/HE150247.jpg" alt=""/>
                                 <td class="indent">HE150537</td>
-                                <td class="indent">Nguyễn Đăng Quang</td>
+                                <td class="indent">Nguyễn Đăng </td>
                                 <td class="indent">quangndhe150537@fpt.edu.vn</td>
                                 <td class="indent"><input type="text" name=""></td>
                             </tr>
                             <tr>
-                                <td >1</td>
+                                <td >2</td>
                                 <td class="indent">NULL</td>
-                                <td class="indent">HE150537</td>
-                                <td class="indent">Nguyễn Đăng Quang</td>
+                                <td class="indent">HE150538</td>
+                                <td class="indent">Nguyễn Quang</td>
                                 <td class="indent">quangndhe150537@fpt.edu.vn</td>
                                 <td class="indent"><input type="text" name=""></td>
                             </tr>
                             <tr>
-                                <td >1</td>
+                                <td >3</td>
                                 <td class="indent">NULL</td>
-                                <td class="indent">HE150537</td>
-                                <td class="indent">Nguyễn Đăng Quang</td>
+                                <td class="indent">HE150539</td>
+                                <td class="indent">Đăng Quang</td>
                                 <td class="indent">quangndhe150537@fpt.edu.vn</td>
                                 <td class="indent"><input type="text" name=""></td>
                             </tr>
                             <tr>
-                                <td >1</td>
+                                <td >4</td>
                                 <td class="indent">NULL</td>
-                                <td class="indent">HE150537</td>
-                                <td class="indent">Nguyễn Đăng Quang</td>
+                                <td class="indent">HE150535</td>
+                                <td class="indent">Nguyễn</td>
                                 <td class="indent">quangndhe150537@fpt.edu.vn</td>
                                 <td class="indent"><input type="text" name=""></td>
                             </tr>
                 
                         </table>
         
-                        View Marks
-                <h2> .</h2>
+                        
+<!--                <h2> .</h2>
                 <h2>Course Name : Java Web Application Development </h2> 
                 <h2>Group Name : SE1601 </h2> <br>
                 <table>
@@ -181,7 +184,7 @@
                 <br/>
                 <input type="submit" value="Save"/>-->
 
-        <div class="topnav">
+<!--        <div class="topnav">
                     <a class="fa fa-home" href="http://localhost:9999/Assignment/course/search" target="_blank">Home</a>
                     <a class="details">MARKS REPORT FOR Student</a>
                     <a class="logout" href="http://localhost:9999/Assignment/LoginController">Logout</a>
@@ -239,6 +242,6 @@
                         <td class="indent">10</td>
                     </tr>
                     </table>
-                    <h2>COURSE TOTAL AVERAGE : 10</h2>
+                    <h2>COURSE TOTAL AVERAGE : 10</h2>-->
     </body>
 </html>
