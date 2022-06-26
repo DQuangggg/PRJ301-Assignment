@@ -77,7 +77,7 @@
 
                             </a>
                             &ensp;
-                            <a class="examp1" href="" target="_blank">
+                            <a class="examp1" href="http://localhost:9999/Assignment/view/group/Teacher_View.jsp" target="_blank">
                                 Take Marks
                             </a>
                         </td>

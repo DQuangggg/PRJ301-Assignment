@@ -55,89 +55,97 @@
         <tr>
             <td >CODE</td>
             <td class="indent">NAME</td>
-            <td class="indent">TEST 1 (5%)</td>
-            <td class="indent">TEST 2 (5%)</td>
-            <td class="indent">PROJECT 1 (10%)</td>
-            <td class="indent">PROJECT 2 (10%)</td>
-            <td class="indent">PE (40%)</td>
-            <td class="indent">FE (30%)</td>
-            <td class="indent">AVG</td>
+            <td class="indent">TEST 1 (10%)</td>
+            <td class="indent">TEST 2 (10%)</td>
+            <td class="indent">PROJECT 1 (20%)</td>
+            <td class="indent">PROJECT 2 (20%)</td>
+            <td class="indent">FE (40%)</td>
         </tr>
         <tr>
-            <td >HE150537</td>
-            <td class="indent">Nguyễn Đăng Quang</td>
-            <!--                        <td class="indent"><input type="text" value ="10" name=""></td>
+            <td >HE150247</td>
+            <td class="indent">Vu Xuan Tung</td>
                                     <td class="indent"><input type="text" value ="10" name=""></td>
                                     <td class="indent"><input type="text" value ="10" name=""></td>
                                     <td class="indent"><input type="text" value ="10" name=""></td>
                                     <td class="indent"><input type="text" value ="10" name=""></td>
                                     <td class="indent"><input type="text" value ="10" name=""></td>
-                                    <td class="indent"></td>-->
+<!--            <td class="indent">10</td>
             <td class="indent">10</td>
             <td class="indent">10</td>
             <td class="indent">10</td>
             <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
+            <td class="indent">10</td>-->
+
 
         </tr>
         <tr>
-            <td >HE150537</td>
-            <td class="indent">Nguyễn Đăng Quang</td>
-<!--            <td class="indent"><input type="text" value ="9.5" name=""></td>
-            <td class="indent"><input type="text" value ="9.5" name=""></td>
-            <td class="indent"><input type="text" value ="9.5" name=""></td>
-            <td class="indent"><input type="text" value ="9.5" name=""></td>
-            <td class="indent"><input type="text" value ="9.5" name=""></td>
-            <td class="indent"><input type="text" value ="9.5" name=""></td>
-            <td class="indent"></td>-->
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
+            <td >HE150456</td>
+            <td class="indent">Nguyen Tung Lam</td>
+            <td class="indent"><input type="text" value ="9" name=""></td>
+            <td class="indent"><input type="text" value ="9" name=""></td>
+            <td class="indent"><input type="text" value ="9" name=""></td>
+            <td class="indent"><input type="text" value ="9" name=""></td>
+            <td class="indent"><input type="text" value ="9" name=""></td>
+
+<!--            <td class="indent">9</td>
+            <td class="indent">9</td>
+            <td class="indent">9</td>
+            <td class="indent">9</td>
+            <td class="indent">9</td>
+            <td class="indent">9</td>-->
+  
+        </tr>
+        <tr>
+            <td >HE150516</td>
+            <td class="indent">Pham Ba Oai</td>
+            <td class="indent"><input type="text" value ="8" name=""></td>
+            <td class="indent"><input type="text" value ="8" name=""></td>
+            <td class="indent"><input type="text" value ="8" name=""></td>
+            <td class="indent"><input type="text" value ="8" name=""></td>
+            <td class="indent"><input type="text" value ="8" name=""></td>
+
+<!--            <td class="indent">8</td>
+            <td class="indent">8</td>
+            <td class="indent">8</td>
+            <td class="indent">8</td>
+            <td class="indent">8</td>
+            <td class="indent">8</td>-->
+
+        </tr>
+        <tr>
+            <td >HE150527</td>
+            <td class="indent">Nguyen Dinh Tho</td>
+            <td class="indent"><input type="text" value ="9" name=""></td>
+            <td class="indent"><input type="text" value ="9" name=""></td>
+            <td class="indent"><input type="text" value ="9" name=""></td>
+            <td class="indent"><input type="text" value ="9" name=""></td>
+            <td class="indent"><input type="text" value ="9" name=""></td>
+
+<!--            <td class="indent">9</td>
+            <td class="indent">9</td>
+            <td class="indent">9</td>
+            <td class="indent">9</td>
+            <td class="indent">9</td>
+            <td class="indent">9</td>-->
         </tr>
         <tr>
             <td >HE150537</td>
-            <td class="indent">Nguyễn Đăng Quang</td>
-<!--            <td class="indent"><input type="text" value ="9" name=""></td>
-            <td class="indent"><input type="text" value ="9" name=""></td>
-            <td class="indent"><input type="text" value ="9" name=""></td>
-            <td class="indent"><input type="text" value ="9" name=""></td>
-            <td class="indent"><input type="text" value ="9" name=""></td>
-            <td class="indent"><input type="text" value ="9" name=""></td>
-            <td class="indent"></td>-->
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-        </tr>
-        <tr>
-            <td >HE150537</td>
-            <td class="indent">Nguyễn Đăng Quang</td>
-<!--            <td class="indent"><input type="text" value ="8" name=""></td>
+            <td class="indent">Nguyen Dang Quang</td>
             <td class="indent"><input type="text" value ="8" name=""></td>
             <td class="indent"><input type="text" value ="8" name=""></td>
             <td class="indent"><input type="text" value ="8" name=""></td>
             <td class="indent"><input type="text" value ="8" name=""></td>
             <td class="indent"><input type="text" value ="8" name=""></td>
-            <td class="indent"></td>-->
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
+
+<!--            <td class="indent">8</td>
+            <td class="indent">8</td>
+            <td class="indent">8</td>
+            <td class="indent">8</td>
+            <td class="indent">8</td>
+            <td class="indent">8</td>-->
         </tr>
     </table>
     <br/>
-<!--    <input type="submit" value="Save"/>-->
+    <input type="submit" value="Save"/>
 </body>
 </html>
