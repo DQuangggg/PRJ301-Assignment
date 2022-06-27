@@ -90,7 +90,7 @@
                 <tr>
                     <td>${s.sname}</td>
                     <td class="indent">${s.scode}</td>
-
+                    
                 </tr>  
             </c:forEach>
         </table>

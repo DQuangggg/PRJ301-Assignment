@@ -75,6 +75,10 @@ public class StudentSearchController extends HttpServlet {
         int cid = Integer.parseInt(request.getParameter("cid"));
         int gid = Integer.parseInt(request.getParameter("gid"));
         
+        MarkDBContext dbmark = new MarkDBContext();
+        ArrayList<Mark> marks = dbmark.search(gid, cid);
+        request.setAttribute("marks", marks);
+        
         StudentDBContext dbStu = new  StudentDBContext();
         ArrayList<Student> students = dbStu.search(gid, cid);
         request.setAttribute("students", students);
