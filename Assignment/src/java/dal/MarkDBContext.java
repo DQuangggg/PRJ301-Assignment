@@ -7,58 +7,49 @@ package dal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import model.Course;
-import java.sql.SQLException;
+import model.Mark;
 
 /**
  *
  * @author ADMIN
  */
-public class CourseDBContext extends DBContext<Course> {
+public class MarkDBContext extends DBContext<Mark> {
 
     @Override
-    public ArrayList<Course> list() {
-        ArrayList<Course> courses = new ArrayList<>();
+    public ArrayList<Mark> list() {
+        ArrayList<Mark> marks = new ArrayList<>();
         try {
-            String sql = "SELECT DISTINCT cid,cname FROM Course";
+            String sql = "select mid from Marks";
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
-                Course c = new Course();
-                c.setCid(rs.getInt("cid"));
-                c.setCname(rs.getString("cname"));
-                courses.add(c);
+                Mark m = new Mark();
+                m.setMid(rs.getInt("mid"));
+                marks.add(m);
             }
-        } catch (Exception ex) {
-            Logger.getLogger(CourseDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
         }
-        return courses;
+        return marks;
     }
 
     @Override
-    public Course get(int id) {
+    public Mark get(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void insert(Course model) {
+    public void insert(Mark model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void update(Course model) {
+    public void update(Mark model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void delete(Course model) {
+    public void delete(Mark model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public static void main(String[] args) {
-        CourseDBContext db = new CourseDBContext();
     }
 
 }

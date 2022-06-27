@@ -72,7 +72,7 @@
                     <tr>
                         <td>${g.gid}</td>
                         <td class="indent">${g.gname}</td>
-                        <td class="indent"><a class="examp1" href="" target="_blank">
+                        <td class="indent"><a class="examp1" href="http://localhost:9999/Assignment/student/search" target="_blank">
                                 View Marks
 
                             </a>

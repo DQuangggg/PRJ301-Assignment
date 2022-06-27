@@ -4,33 +4,50 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ADMIN
  */
 public class Student {
-    private String sid;
+
+    private int sid;
     private String sname;
     private String scode;
-    private boolean sattendance;
-    private String smail;
-    private String snote;
-    private Group groups;
-    private Course courses;
+    private Course course;
+    private Group group;
+    private ArrayList<Mark> marks = new ArrayList<Mark>();
 
-    public Course getCourses() {
-        return courses;
+    public Course getCourse() {
+        return course;
     }
 
-    public void setCourses(Course courses) {
-        this.courses = courses;
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
-    public String getSid() {
+    public ArrayList<Mark> getMarks() {
+        return marks;
+    }
+
+    public void setMarks(ArrayList<Mark> marks) {
+        this.marks = marks;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
+    public int getSid() {
         return sid;
     }
 
-    public void setSid(String sid) {
+    public void setSid(int sid) {
         this.sid = sid;
     }
 
@@ -50,37 +67,4 @@ public class Student {
         this.scode = scode;
     }
 
-    public boolean isSattendance() {
-        return sattendance;
-    }
-
-    public void setSattendance(boolean sattendance) {
-        this.sattendance = sattendance;
-    }
-
-    public String getSmail() {
-        return smail;
-    }
-
-    public void setSmail(String smail) {
-        this.smail = smail;
-    }
-
-    public String getSnote() {
-        return snote;
-    }
-
-    public void setSnote(String snote) {
-        this.snote = snote;
-    }
-
-    public Group getGroups() {
-        return groups;
-    }
-
-    public void setGroups(Group groups) {
-        this.groups = groups;
-    }
-    
-    
 }

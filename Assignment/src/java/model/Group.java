@@ -5,17 +5,35 @@
 package model;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 /**
  *
  * @author ADMIN
  */
 public class Group {
+
     private int gid;
     private String gname;
-    private Course course ;
+    private Course course;
+    private ArrayList<Student> students = new ArrayList<Student>();
+    private ArrayList<Mark> marks = new ArrayList<Mark>();
 
-    
+    public ArrayList<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(ArrayList<Student> students) {
+        this.students = students;
+    }
+
+    public ArrayList<Mark> getMarks() {
+        return marks;
+    }
+
+    public void setMarks(ArrayList<Mark> marks) {
+        this.marks = marks;
+    }
 
     public int getGid() {
         return gid;
@@ -32,7 +50,6 @@ public class Group {
     public void setGname(String gname) {
         this.gname = gname;
     }
-   
 
     public Course getCourse() {
         return course;
@@ -42,7 +59,4 @@ public class Group {
         this.course = course;
     }
 
-    
-    
-    
 }

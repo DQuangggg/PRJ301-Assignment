@@ -4,6 +4,7 @@
     Author     : ADMIN
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -46,106 +47,172 @@
         <a class="logout" href="http://localhost:9999/Assignment/LoginController">Logout</a>
     </div>
 
+    <br/>
+    <br/>
+
+    <form action="search" method="POST">
+        Choose Group: <select name="gid"> 
+            <c:forEach items="${requestScope.groups}" var="g">
+                <option 
+                    <c:if test="${g.gid eq requestScope.gid}">
+                        selected="selected"
+                    </c:if>
+                    value="${g.gid}">${g.gname}
+                </option>
+            </c:forEach>
+        </select>
+
+        Choose Course <select name="cid"> 
+            <c:forEach items="${requestScope.courses}" var="c">
+                <option 
+                    <c:if test="${c.cid eq requestScope.cid}">
+                        selected="selected"
+                    </c:if>
+                    value="${c.cid}">${c.cname}
+                </option>
+            </c:forEach>
+        </select>
+        <input type="submit" value="Search"/>
+    </form>
+    <br/>
+    <c:if test="${requestScope.students ne null}">
+        <table >
+            <tr>
+                <td >NAME</td>
+                <td class="indent">CODE</td>
+                <td class="indent">PROJECT 1 (10%)</td>
+                <td class="indent">PROJECT 2 (10%)</td>
+                <td class="indent">ASSIGNMENT 1 (20%)</td>
+                <td class="indent">ASSIGNMENT 2 (20%)</td>
+                <td class="indent">FE (40%)</td>
+            </tr>
+            <c:forEach items="${requestScope.students}" var="s">
+                <tr>
+                    <td>${s.sname}</td>
+                    <td class="indent">${s.scode}</td>
+
+                </tr>  
+            </c:forEach>
+        </table>
+    </c:if> 
+</body>
+<!--<body>
+    <div class="topnav">
+        <a class="fa fa-home" href="http://localhost:9999/Assignment/course/search" target="_blank">Home</a>
+        <a class="details">MARKS REPORT FOR TEACHER</a>
+        <a class="logout" href="http://localhost:9999/Assignment/LoginController">Logout</a>
+    </div>
+
 
     <br/>
     <h2> .</h2>
     <h2>Course Name : Java Web Application Development </h2> 
     <h2>Group Name : SE1601 </h2> <br>
-    <table>
+    
+<c:if test="${requestScope.students ne null}">
+<table>
+    <tr>
+        <td >CODE</td>
+        <td class="indent">NAME</td>
+        <td class="indent">TEST 1 (10%)</td>
+        <td class="indent">TEST 2 (10%)</td>
+        <td class="indent">PROJECT 1 (20%)</td>
+        <td class="indent">PROJECT 2 (20%)</td>
+        <td class="indent">FE (40%)</td>
+    </tr>
+    <c:forEach items="${requestScope.students}" var="s">
         <tr>
-            <td >CODE</td>
-            <td class="indent">NAME</td>
-            <td class="indent">TEST 1 (10%)</td>
-            <td class="indent">TEST 2 (10%)</td>
-            <td class="indent">PROJECT 1 (20%)</td>
-            <td class="indent">PROJECT 2 (20%)</td>
-            <td class="indent">FE (40%)</td>
+            <td>${s.scode}</td>
+            <td>${g.sname}</td>
+            
         </tr>
-        <tr>
-            <td >HE150247</td>
-            <td class="indent">Vu Xuan Tung</td>
-                                    <td class="indent"><input type="text" value ="10" name=""></td>
-                                    <td class="indent"><input type="text" value ="10" name=""></td>
-                                    <td class="indent"><input type="text" value ="10" name=""></td>
-                                    <td class="indent"><input type="text" value ="10" name=""></td>
-                                    <td class="indent"><input type="text" value ="10" name=""></td>
-<!--            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>-->
+    </c:forEach>
+    <tr>
+        <td >HE150247</td>
+        <td class="indent">Vu Xuan Tung</td>
+                                <td class="indent"><input type="text" value ="10" name=""></td>
+                                <td class="indent"><input type="text" value ="10" name=""></td>
+                                <td class="indent"><input type="text" value ="10" name=""></td>
+                                <td class="indent"><input type="text" value ="10" name=""></td>
+                                <td class="indent"><input type="text" value ="10" name=""></td>
+        <td class="indent">10</td>
+        <td class="indent">10</td>
+        <td class="indent">10</td>
+        <td class="indent">10</td>
+        <td class="indent">10</td>
+        <td class="indent">10</td>
 
 
-        </tr>
-        <tr>
-            <td >HE150456</td>
-            <td class="indent">Nguyen Tung Lam</td>
-            <td class="indent"><input type="text" value ="9" name=""></td>
-            <td class="indent"><input type="text" value ="9" name=""></td>
-            <td class="indent"><input type="text" value ="9" name=""></td>
-            <td class="indent"><input type="text" value ="9" name=""></td>
-            <td class="indent"><input type="text" value ="9" name=""></td>
+    </tr>
+    <tr>
+        <td >HE150456</td>
+        <td class="indent">Nguyen Tung Lam</td>
+        <td class="indent"><input type="text" value ="9" name=""></td>
+        <td class="indent"><input type="text" value ="9" name=""></td>
+        <td class="indent"><input type="text" value ="9" name=""></td>
+        <td class="indent"><input type="text" value ="9" name=""></td>
+        <td class="indent"><input type="text" value ="9" name=""></td>
 
-<!--            <td class="indent">9</td>
-            <td class="indent">9</td>
-            <td class="indent">9</td>
-            <td class="indent">9</td>
-            <td class="indent">9</td>
-            <td class="indent">9</td>-->
-  
-        </tr>
-        <tr>
-            <td >HE150516</td>
-            <td class="indent">Pham Ba Oai</td>
-            <td class="indent"><input type="text" value ="8" name=""></td>
-            <td class="indent"><input type="text" value ="8" name=""></td>
-            <td class="indent"><input type="text" value ="8" name=""></td>
-            <td class="indent"><input type="text" value ="8" name=""></td>
-            <td class="indent"><input type="text" value ="8" name=""></td>
+        <td class="indent">9</td>
+        <td class="indent">9</td>
+        <td class="indent">9</td>
+        <td class="indent">9</td>
+        <td class="indent">9</td>
+        <td class="indent">9</td>
 
-<!--            <td class="indent">8</td>
-            <td class="indent">8</td>
-            <td class="indent">8</td>
-            <td class="indent">8</td>
-            <td class="indent">8</td>
-            <td class="indent">8</td>-->
+    </tr>
+    <tr>
+        <td >HE150516</td>
+        <td class="indent">Pham Ba Oai</td>
+        <td class="indent"><input type="text" value ="8" name=""></td>
+        <td class="indent"><input type="text" value ="8" name=""></td>
+        <td class="indent"><input type="text" value ="8" name=""></td>
+        <td class="indent"><input type="text" value ="8" name=""></td>
+        <td class="indent"><input type="text" value ="8" name=""></td>
 
-        </tr>
-        <tr>
-            <td >HE150527</td>
-            <td class="indent">Nguyen Dinh Tho</td>
-            <td class="indent"><input type="text" value ="9" name=""></td>
-            <td class="indent"><input type="text" value ="9" name=""></td>
-            <td class="indent"><input type="text" value ="9" name=""></td>
-            <td class="indent"><input type="text" value ="9" name=""></td>
-            <td class="indent"><input type="text" value ="9" name=""></td>
+        <td class="indent">8</td>
+        <td class="indent">8</td>
+        <td class="indent">8</td>
+        <td class="indent">8</td>
+        <td class="indent">8</td>
+        <td class="indent">8</td>
 
-<!--            <td class="indent">9</td>
-            <td class="indent">9</td>
-            <td class="indent">9</td>
-            <td class="indent">9</td>
-            <td class="indent">9</td>
-            <td class="indent">9</td>-->
-        </tr>
-        <tr>
-            <td >HE150537</td>
-            <td class="indent">Nguyen Dang Quang</td>
-            <td class="indent"><input type="text" value ="8" name=""></td>
-            <td class="indent"><input type="text" value ="8" name=""></td>
-            <td class="indent"><input type="text" value ="8" name=""></td>
-            <td class="indent"><input type="text" value ="8" name=""></td>
-            <td class="indent"><input type="text" value ="8" name=""></td>
+    </tr>
+    <tr>
+        <td >HE150527</td>
+        <td class="indent">Nguyen Dinh Tho</td>
+        <td class="indent"><input type="text" value ="9" name=""></td>
+        <td class="indent"><input type="text" value ="9" name=""></td>
+        <td class="indent"><input type="text" value ="9" name=""></td>
+        <td class="indent"><input type="text" value ="9" name=""></td>
+        <td class="indent"><input type="text" value ="9" name=""></td>
 
-<!--            <td class="indent">8</td>
-            <td class="indent">8</td>
-            <td class="indent">8</td>
-            <td class="indent">8</td>
-            <td class="indent">8</td>
-            <td class="indent">8</td>-->
-        </tr>
-    </table>
-    <br/>
-    <input type="submit" value="Save"/>
-</body>
+        <td class="indent">9</td>
+        <td class="indent">9</td>
+        <td class="indent">9</td>
+        <td class="indent">9</td>
+        <td class="indent">9</td>
+        <td class="indent">9</td>
+    </tr>
+    <tr>
+        <td >HE150537</td>
+        <td class="indent">Nguyen Dang Quang</td>
+        <td class="indent"><input type="text" value ="8" name=""></td>
+        <td class="indent"><input type="text" value ="8" name=""></td>
+        <td class="indent"><input type="text" value ="8" name=""></td>
+        <td class="indent"><input type="text" value ="8" name=""></td>
+        <td class="indent"><input type="text" value ="8" name=""></td>
+
+        <td class="indent">8</td>
+        <td class="indent">8</td>
+        <td class="indent">8</td>
+        <td class="indent">8</td>
+        <td class="indent">8</td>
+        <td class="indent">8</td>
+    </tr>
+</table>
+</c:if>
+<br/>
+<input type="submit" value="Save"/>
+</body>-->
 </html>

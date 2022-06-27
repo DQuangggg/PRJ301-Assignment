@@ -7,6 +7,7 @@ package controller.course;
 
 import dal.CourseDBContext;
 import dal.GroupDBContext;
+import dal.MarkDBContext;
 import dal.StudentDBContext;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
@@ -16,6 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import model.Course;
 import model.Group;
+import model.Mark;
 import model.Student;
 
 /**
@@ -47,10 +49,17 @@ public class StudentSearchController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        StudentDBContext db = new StudentDBContext();
-        ArrayList<Student> students = db.list();
-        request.setAttribute("students", students);
-        request.getRequestDispatcher("view/group/attend.jsp").forward(request, response);
+        GroupDBContext db = new GroupDBContext();
+        ArrayList<Group> groups = db.list();
+        request.setAttribute("groups", groups);
+        
+        CourseDBContext dbc = new CourseDBContext();
+        ArrayList<Course> courses = dbc.list();
+        request.setAttribute("courses", courses);
+        
+        request.getRequestDispatcher("../view/group/Teacher_View.jsp").forward(request, response);
+        
+
     } 
 
     /** 
@@ -76,10 +85,11 @@ public class StudentSearchController extends HttpServlet {
         request.setAttribute("cid", cid);
         
         GroupDBContext dbGro = new GroupDBContext();
-        ArrayList<Group> groups = dbGro.search(cid);
+        ArrayList<Group> groups = dbGro.list();
         request.setAttribute("groups", groups);
         request.setAttribute("gid", gid);
-        request.getRequestDispatcher("view/group/attend.jsp").forward(request, response);
+        
+        request.getRequestDispatcher("../view/group/Teacher_View.jsp").forward(request, response);
     }
 
     /** 

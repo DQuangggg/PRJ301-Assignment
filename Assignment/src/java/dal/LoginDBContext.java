@@ -17,7 +17,8 @@ import java.sql.SQLException;
  * @author ADMIN
  */
 public class LoginDBContext extends DBContext {
-   public  Account Login(String username , String pass){
+
+    public Account Login(String username, String pass) {
 
         try {
             //Cau lenh trong SQL
@@ -35,15 +36,14 @@ public class LoginDBContext extends DBContext {
                 return account;
             }
         } catch (Exception ex) {
-             Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
-            
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
+
         }
-        
+
         return null;
     }
-   
-   public static void main(String[] args)
-    {
+
+    public static void main(String[] args) {
         LoginDBContext db = new LoginDBContext();
     }
 

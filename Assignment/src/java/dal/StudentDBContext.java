@@ -8,6 +8,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Course;
 import model.Group;
 import model.Student;
@@ -16,45 +18,86 @@ import model.Student;
  *
  * @author ADMIN
  */
-public class StudentDBContext extends DBContext<Student>{
-   public ArrayList<Student> search (int gid , int cid){
-       ArrayList<Student> students = new  ArrayList<>();
-       try {
-           String sql = "SELECT DISTINCT a.sid , a.sname , a.scode , a.sattendance , a.smail ,a.snote ,b.gid , b.cid FROM Student a \n" +
-                        "INNER JOIN [Assignment].[dbo].[Group] b ON a.gid = b.gid and a.cid = b.cid WHERE b.gid = ? and b.cid = ?  ORDER BY a.scode ASC ";
+public class StudentDBContext extends DBContext<Student> {
+
+    public ArrayList<Student> search(int gid, int cid) {
+        ArrayList<Student> students = new ArrayList<>();
+        try {
+            String sql = "select a.sid, a.scode, a.sname, c.cid , c.cname , b.gid , b.gname \n"
+                    + "from Student a INNER JOIN [Assignment].[dbo].[Group] b ON a.gid = b.gid \n"
+                    + "INNER JOIN Course c ON c.gid  = b.gid\n"
+                    //                    + "INNER JOIN Marks d ON a.sid = d.sid AND b.gid = d.gid \n"
+                    //                    + "AND c.cid = d.cid\n"
+                    + "WHERE b.gid = ? AND c.cid = ? ";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, gid);
             stm.setInt(2, cid);
             ResultSet rs = stm.executeQuery();
-            while (rs.next()) {               
-               Student s = new Student();
-               s.setSid(rs.getString("sid"));
-               s.setSname(rs.getString("sname"));
-               s.setScode(rs.getString("scode"));
-               s.setSattendance(rs.getBoolean("sattendance"));
-               s.setSmail(rs.getString("smail"));
-               s.setSnote(rs.getString("snote"));
-               Group g = new Group();
-               g.setGid(rs.getInt("gid"));
-               Course c = new Course();
-               c.setCid(rs.getInt("cid"));
-               s.setGroups(g);
-               s.setCourses(c);
-               students.add(s);
-           }
-            
-       } catch (Exception e) {
-       }
-       
-       
-       return students ;
-    
-}
-           
+            while (rs.next()) {
+                Student s = new Student();
+                s.setSid(rs.getInt("sid"));
+                s.setSname(rs.getString("sname"));
+                s.setScode(rs.getString("scode"));
+                Group g = new Group();
+                g.setGid(rs.getInt("gid"));
+                g.setGname(rs.getString("gname"));
+                Course c = new Course();
+                c.setCid(rs.getInt("cid"));
+                c.setCname(rs.getString("cname"));
+                students.add(s);
+            }
 
+        } catch (Exception e) {
+        }
+
+        return students;
+
+    }
+
+//    public ArrayList<Student> search(int gid) {
+//        ArrayList<Student> students = new ArrayList<>();
+//        try {
+//            String sql = "select a.sid, a.scode, a.sname ,b.gid , b.gname \n"
+//                    + "from Student a INNER JOIN [Assignment].[dbo].[Group] b ON a.gid = b.gid \n"
+//                    + "WHERE b.gid = ? ";
+//            PreparedStatement stm = connection.prepareStatement(sql);
+//            stm.setInt(1, gid);
+//            ResultSet rs = stm.executeQuery();
+//            while (rs.next()) {
+//                Student s = new Student();
+//                s.setSid(rs.getInt("sid"));
+//                s.setSname(rs.getString("sname"));
+//                s.setScode(rs.getString("scode"));
+//                Group g = new Group();
+//                g.setGid(rs.getInt("gid"));
+//                g.setGname(rs.getString("gname"));
+//                students.add(s);
+//            }
+//
+//        } catch (Exception ex) {
+//             Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//        return students;
+//
+//    }
     @Override
     public ArrayList<Student> list() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ArrayList<Student> students = new ArrayList<>();
+        try {
+            String sql = "select sid , scode , sname from Student";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Student s = new Student();
+                s.setSid(rs.getInt("sid"));
+                s.setScode(rs.getString("scode"));
+                s.setSname(rs.getString("sname"));
+                students.add(s);
+            }
+        } catch (Exception e) {
+        }
+        return students;
     }
 
     @Override
@@ -76,9 +119,8 @@ public class StudentDBContext extends DBContext<Student>{
     public void delete(Student model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
-    public static void main(String[] args)
-    {
+
+    public static void main(String[] args) {
         StudentDBContext db = new StudentDBContext();
     }
 }

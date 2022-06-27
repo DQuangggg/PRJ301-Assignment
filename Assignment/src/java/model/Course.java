@@ -11,9 +11,28 @@ import java.util.ArrayList;
  * @author ADMIN
  */
 public class Course {
+
     private int cid;
     private String cname;
     private ArrayList<Group> groups = new ArrayList<>();
+    private ArrayList<Student> students = new ArrayList<Student>();
+    private ArrayList<Mark> marks = new ArrayList<Mark>();
+
+    public ArrayList<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(ArrayList<Student> students) {
+        this.students = students;
+    }
+
+    public ArrayList<Mark> getMarks() {
+        return marks;
+    }
+
+    public void setMarks(ArrayList<Mark> marks) {
+        this.marks = marks;
+    }
 
     public int getCid() {
         return cid;
@@ -38,6 +57,5 @@ public class Course {
     public void setGroups(ArrayList<Group> groups) {
         this.groups = groups;
     }
-    
-    
+
 }
