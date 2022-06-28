@@ -4,6 +4,7 @@
     Author     : ADMIN
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!--Remake connect n-n between course and teacher-->
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -48,35 +49,61 @@
         <a class="logout" href="http://localhost:9999/Assignment/LoginController">Logout</a>
     </div>
 
-
     <br/>
-    <h2> .</h2>
-    <h2>Course Name : Java Web Application Development </h2> 
-    <h2>Group Name : SE1601 </h2> <br>
-    <table>
-        <tr>
-            <td >CODE</td>
-            <td class="indent">NAME</td>
-            <td class="indent">TEST 1 (10%)</td>
-            <td class="indent">TEST 2 (10%)</td>
-            <td class="indent">PROJECT 1 (20%)</td>
-            <td class="indent">PROJECT 2 (20%)</td>
-            <td class="indent">FE (40%)</td>
-        </tr>
-        <tr>
-            <td >HE150247</td>
-            <td class="indent">Vu Xuan Tung</td>
-
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-            <td class="indent">10</td>
-        </tr>
-
-    </table>
     <br/>
-    <input type="submit" value="Save"/>
+
+    <form>
+        <h2>Name : Nguyen Dang Quang </h2> 
+        <h2>Code : HE150537 </h2> 
+    </form>
+    <form action="search" method="POST">
+        Choose Course : <select name = "cid">
+            <c:forEach items="${requestScope.courses}" var="c">
+                <option 
+                    <c:if test="${c.cid eq requestScope.cid}">
+                        selected="selected"
+                    </c:if>
+                    value="${c.cid}">${c.cname}
+                </option>
+            </c:forEach>
+        </select>
+        Choose Student : <select name = "sid">
+            <c:forEach items="${requestScope.students}" var="s">
+                <option 
+                    <c:if test="${s.sid eq requestScope.sid}">
+                        selected="selected"
+                    </c:if>
+                    value="${s.sid}">${s.sname}
+                </option>
+            </c:forEach>
+        </select>
+        <input type="submit" value="Search"/>
+    </form>
+    <br/>
+    <c:if test="${requestScope.marks1} ne null}">
+        <table>
+            <tr>
+                <td >TEST 1 (10%)</td>
+                <td class="indent">TEST 2 (10%)</td>
+                <td class="indent">PROJECT 1 (20%)</td>
+                <td class="indent">PROJECT 2 (20%)</td>
+                <td class="indent">FE (40%)</td>
+<!--                <td class="indent">AVG</td>-->
+            </tr>
+            <c:forEach items="${requestScope.marks1}" var="m">
+                <tr>
+                    <td>${m.m1}</td>
+                    <td class="indent">${m.m3}</td>
+                     <td class="indent">${m.m4}</td>
+                     <td class="indent">${m.mfe}</td>
+                     <td class="indent">${m.m2}</td>
+                     
+                </tr>
+
+            </c:forEach>
+        </table>
+    </c:if>
+
+   
 </body>
 </html>

@@ -75,7 +75,7 @@
         <input type="submit" value="Search"/>
     </form>
     <br/>
-    <c:if test="${requestScope.students ne null}">
+    <c:if test="${requestScope.students ne null && requestScope.marks ne null}">
         <table >
             <tr>
                 <td >NAME</td>
@@ -84,17 +84,34 @@
                 <td class="indent">PROJECT 2 (10%)</td>
                 <td class="indent">ASSIGNMENT 1 (20%)</td>
                 <td class="indent">ASSIGNMENT 2 (20%)</td>
-                <td class="indent">FE (40%)</td>
+               <td class="indent">FE (40%)</td>
             </tr>
-            <c:forEach items="${requestScope.students}" var="s">
+            <c:forEach items="${requestScope.students}" var="s" >
                 <tr>
                     <td>${s.sname}</td>
                     <td class="indent">${s.scode}</td>
-                    
+                    <c:forEach items="${requestScope.marks}" var="m">
+                        <c:if test="m.student.sid eq s.sid" >
+                             value="${m.m1}"
+                        </c:if>
+                        </c:forEach>
                 </tr>  
             </c:forEach>
         </table>
+        
+        <c:forEach items="${requestScope.marks}" var="m">
+                        <td class="indent">${m.m1}</td>
+                        <td class="indent">${m.m2}</td>
+                        <td class="indent">${m.m3}</td>
+                        <td class="indent">${m.m4}</td>
+                        <td class="indent">${m.mfe}</td>
+                    </c:forEach>
+        
+        
     </c:if> 
+    
+                        
+
 </body>
 <!--<body>
     <div class="topnav">

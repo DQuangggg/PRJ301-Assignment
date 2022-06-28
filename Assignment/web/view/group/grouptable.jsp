@@ -64,14 +64,12 @@
         <c:if test="${requestScope.groups ne null}">
             <table >
                 <tr>
-                    <td >GROUP ID</td>
-                    <td class="indent">GROUP NAME</td>
+                    <td>GROUP NAME</td>
                     <td class="indent">OPTION</td>
                 </tr>
                 <c:forEach items="${requestScope.groups}" var="g">
                     <tr>
-                        <td>${g.gid}</td>
-                        <td class="indent">${g.gname}</td>
+                        <td>${g.gname}</td>
                         <td class="indent"><a class="examp1" href="http://localhost:9999/Assignment/student/search" target="_blank">
                                 View Marks
 

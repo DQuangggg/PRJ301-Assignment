@@ -85,7 +85,7 @@ public class StudentDBContext extends DBContext<Student> {
     public ArrayList<Student> list() {
         ArrayList<Student> students = new ArrayList<>();
         try {
-            String sql = "select sid , scode , sname from Student";
+            String sql = "select DISTINCT sid , scode , sname from Student";
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
